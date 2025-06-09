@@ -1,0 +1,44 @@
+[ 2025-06-09 19:07:12,765 ] 148 numexpr.utils - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[ 2025-06-09 19:07:12,765 ] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[ 2025-06-09 19:07:16,870 ] 1026 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-06-09 19:07:16,870 ] 107 dagshub - INFO - Accessing as salmasyed1360
+[ 2025-06-09 19:07:17,500 ] 1026 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/salmasyed1360/NetworkSecurity-MLProject "HTTP/1.1 200 OK"
+[ 2025-06-09 19:07:18,069 ] 1026 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-06-09 19:07:18,080 ] 107 dagshub - INFO - Initialized MLflow to track repo "salmasyed1360/NetworkSecurity-MLProject"
+[ 2025-06-09 19:07:18,080 ] 107 dagshub - INFO - Repository salmasyed1360/NetworkSecurity-MLProject initialized!
+[ 2025-06-09 19:07:18,080 ] 24 root - INFO - Initiate the data ingestion
+[ 2025-06-09 19:07:20,759 ] 64 root - INFO - Performed train test split on the dataframe
+[ 2025-06-09 19:07:20,759 ] 69 root - INFO - Exporting train and test file path.
+[ 2025-06-09 19:07:20,809 ] 72 root - INFO - Exported train and test file path.
+[ 2025-06-09 19:07:20,810 ] 28 root - INFO - Data Ingestion completed and artifact: DataIngestionArtifact(trained_file_path='Artifacts\\06_09_2025_19_07_13\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\06_09_2025_19_07_13\\data_ingestion\\ingested\\test.csv')
+[ 2025-06-09 19:07:20,810 ] 30 root - INFO - Initiate the data Validation
+[ 2025-06-09 19:07:20,857 ] 36 root - INFO - Required number of columns:2
+[ 2025-06-09 19:07:20,857 ] 37 root - INFO - Data frame has columns:31
+[ 2025-06-09 19:07:20,857 ] 36 root - INFO - Required number of columns:2
+[ 2025-06-09 19:07:20,857 ] 37 root - INFO - Data frame has columns:31
+[ 2025-06-09 19:07:20,960 ] 34 root - INFO - Data Validation completed and artifact: DataValidationArtifact(validation_status=None, valid_train_file_path='Artifacts\\06_09_2025_19_07_13\\data_ingestion\\ingested\\train.csv', valid_test_file_path='Artifacts\\06_09_2025_19_07_13\\data_ingestion\\ingested\\test.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='Artifacts\\06_09_2025_19_07_13\\data_validation\\drift_report\\report.yaml')
+[ 2025-06-09 19:07:20,960 ] 36 root - INFO - data Transformation started
+[ 2025-06-09 19:07:20,960 ] 53 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[ 2025-06-09 19:07:20,960 ] 55 root - INFO - Starting data transformation
+[ 2025-06-09 19:07:20,964 ] 42 root - INFO - Entered get_data_transformer_object method of Transformation class
+[ 2025-06-09 19:07:20,964 ] 45 root - INFO - Initialized KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2025-06-09 19:07:20,980 ] 50 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-06-09 19:07:20,980 ] 54 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-06-09 19:07:20,980 ] 50 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-06-09 19:07:20,980 ] 54 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-06-09 19:07:20,980 ] 40 root - INFO - Data Transformation completed and artifact: DataTransformationArtifact(transformed_object_file_path='Artifacts\\06_09_2025_19_07_13\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_train_file_path='Artifacts\\06_09_2025_19_07_13\\data_transformation\\transformed\\train.npy', transformed_test_file_path='Artifacts\\06_09_2025_19_07_13\\data_transformation\\transformed\\test.npy')
+[ 2025-06-09 19:07:20,980 ] 42 root - INFO - Model Training started
+[ 2025-06-09 19:10:30,797 ] 125 root - INFO - done testing preds
+[ 2025-06-09 19:10:30,813 ] 127 root - INFO - before saving model
+[ 2025-06-09 19:10:30,813 ] 130 root - INFO - Created directory? Exists? True at Artifacts\06_09_2025_19_07_13\model_trainer\trained_model
+[ 2025-06-09 19:10:30,813 ] 132 root - INFO - model_path: Artifacts\06_09_2025_19_07_13\model_trainer\trained_model\model.pkl
+[ 2025-06-09 19:10:30,813 ] 12 root - INFO - entered NetworkModel class in estimator.py
+[ 2025-06-09 19:10:30,813 ] 135 root - INFO - model: <class 'networksecurity.utils.ml_utils.model.estimator.NetworkModel'>
+[ 2025-06-09 19:10:30,813 ] 50 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-06-09 19:10:30,829 ] 54 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-06-09 19:10:30,829 ] 137 root - INFO - after saving model
+[ 2025-06-09 19:10:30,829 ] 50 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-06-09 19:10:30,860 ] 54 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-06-09 19:10:30,860 ] 140 root - INFO - after pushing model
+[ 2025-06-09 19:10:30,860 ] 147 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\06_09_2025_19_07_13\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.992012941057527, precision_score=0.989911218724778, recall_score=0.9941236068895644), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9707078925956062, precision_score=0.9652103559870551, recall_score=0.9762684124386252))
+[ 2025-06-09 19:10:30,860 ] 46 root - INFO - Model Training completed and artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\06_09_2025_19_07_13\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.992012941057527, precision_score=0.989911218724778, recall_score=0.9941236068895644), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9707078925956062, precision_score=0.9652103559870551, recall_score=0.9762684124386252))
