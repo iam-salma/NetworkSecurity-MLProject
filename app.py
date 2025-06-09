@@ -27,13 +27,15 @@ collection = client[DATA_INGESTION_DATABASE_NAME][DATA_INGESTION_COLLECTION_NAME
 from fastapi import FastAPI, File, UploadFile,Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import Response
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import Response, HTMLResponse
 from starlette.responses import RedirectResponse
 from uvicorn import run as app_run
 
 app = FastAPI()
 origins = ["*"]
 templates = Jinja2Templates(directory="./templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -44,9 +46,14 @@ app.add_middleware(
 )
 
 
-@app.get("/", tags=["authentication"])
-async def index():
-    return RedirectResponse(url="/docs")
+# @app.get("/", tags=["authentication"])
+# async def index():
+#     return RedirectResponse(url="/docs")
+
+@app.get("/", response_class=HTMLResponse, tags=["home"])
+async def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
 
 @app.get("/train")
 async def train_route():
@@ -57,10 +64,11 @@ async def train_route():
     except Exception as e:
         raise NetworkSecurityException(e,sys) from e
     
+    
 @app.post("/predict")
 async def predict_route(request: Request,file: UploadFile = File(...)):
     try:
-        df=pd.read_csv(file.file)
+        df=pd.read_csv(file.file) #upload valid_data test file
         #print(df)
         
         preprocesor=load_object("final_model/preprocessor.pkl")

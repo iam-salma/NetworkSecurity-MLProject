@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Data Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Prediction Results | Network Security</title>
+    <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
-    <h2>Predicted Data</h2>
-    {{ table | safe }}
+    <div class="container">
+    <h2>Network Security Prediction Dashboard</h2>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <input type="submit" value="Upload and Predict">
+    </form>
+
+    {% if table %}
+        {{ table | safe }}
+    {% endif %}
+
+    <div class="footer">© 2025 NetworkSecurity ML Project</div>
+    </div>
+    <script src="/static/scripts.js"></script>
 </body>
 </html>
