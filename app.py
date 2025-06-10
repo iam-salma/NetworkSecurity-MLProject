@@ -94,3 +94,5 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
 if __name__=="__main__":
     app_run(app,host="0.0.0.0",port=8000)
     # >uvicorn app:app --reload
+    # >aws configure
+    # hh6905g7UFcPvTRsEFGeUx0fcnx5CdPXezba35tK
