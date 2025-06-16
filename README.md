@@ -17,7 +17,7 @@ These feature vectors are used by the model to classify each URL as:
 
 ## 🔁 Project Workflow
 
-1. Load and preprocess the validated URL feature dataset.
+1. Load and preprocess the validated URL feature dataset i.e. valid_data/test.csv
 2. Use a trained machine learning model to assess phishing risk.
 3. Saves predictions to `predicted_output/output.csv` for review and further analysis.
 
